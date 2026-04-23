@@ -250,6 +250,78 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .toast.error{border-color:var(--red);color:var(--red);}
 .toast.warn{border-color:var(--yellow);color:var(--yellow);}
 
+/* ═════ v6 ADDITIONS ═════ */
+.date-nav{display:flex;align-items:center;gap:8px;background:var(--s1);border:1px solid var(--border);border-radius:14px;padding:10px 12px;margin:14px 0 8px;}
+.date-nav-btn{background:var(--s2);border:1px solid var(--border);border-radius:10px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--muted);flex-shrink:0;}
+.date-nav-btn:hover{color:var(--orange);border-color:var(--orange);}
+.date-nav-btn.disabled{opacity:.3;pointer-events:none;}
+.date-nav-main{flex:1;text-align:center;min-width:0;}
+.date-nav-day{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:var(--text);line-height:1.1;}
+.date-nav-sub{font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;margin-top:3px;}
+.date-nav-sub.today{color:var(--green);}
+.date-nav-sub.past{color:var(--yellow);}
+.viewing-past{background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.3);border-radius:10px;padding:8px 12px;margin-bottom:10px;font-size:12px;color:var(--yellow);text-align:center;}
+
+.event-timeline{position:relative;padding-left:24px;}
+.event-timeline::before{content:'';position:absolute;left:8px;top:4px;bottom:4px;width:2px;background:linear-gradient(180deg,var(--orange),var(--cyan),var(--purple));border-radius:1px;}
+.event-item{position:relative;margin-bottom:8px;background:var(--s1);border:1px solid var(--border);border-radius:10px;padding:10px 12px;}
+.event-item::before{content:'';position:absolute;left:-20px;top:14px;width:10px;height:10px;border-radius:50%;background:var(--orange);border:2px solid var(--bg);box-shadow:0 0 6px var(--orange);}
+.event-item.workout::before{background:var(--cyan);box-shadow:0 0 6px var(--cyan);}
+.event-item.meal::before{background:var(--green);box-shadow:0 0 6px var(--green);}
+.event-item.sleep::before{background:var(--purple);box-shadow:0 0 6px var(--purple);}
+.event-item.deviation::before{background:var(--yellow);box-shadow:0 0 6px var(--yellow);}
+.event-item.injury::before{background:var(--red);box-shadow:0 0 6px var(--red);}
+.event-item.note::before{background:var(--muted);box-shadow:0 0 6px var(--muted);}
+.event-time{font-family:'DM Mono',monospace;font-size:10px;color:var(--orange);letter-spacing:1px;}
+.event-title{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;margin-top:2px;}
+.event-desc{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.5;}
+.event-delete{position:absolute;top:8px;right:8px;background:transparent;border:none;color:var(--muted);opacity:.4;cursor:pointer;font-size:12px;padding:2px 6px;}
+.event-delete:hover{opacity:1;color:var(--red);}
+.event-type-row{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:10px;}
+.event-type-btn{padding:8px 4px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:.5px;cursor:pointer;text-transform:uppercase;}
+.event-type-btn.on{background:var(--orange);border-color:var(--orange);color:#fff;}
+
+.food-calc{background:var(--s2);border-radius:10px;padding:10px;margin-bottom:8px;}
+.food-calc-input-row{display:flex;gap:6px;}
+.food-calc-input{flex:1;background:var(--s1);border:1px solid var(--border);border-radius:8px;padding:8px 10px;color:var(--text);font-family:'Barlow',sans-serif;font-size:13px;outline:none;}
+.food-calc-input:focus{border-color:var(--orange);}
+.food-calc-btn{background:var(--orange);color:#fff;border:none;border-radius:8px;padding:0 12px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;cursor:pointer;text-transform:uppercase;white-space:nowrap;}
+.food-calc-btn.sec{background:var(--s1);color:var(--cyan);border:1px solid var(--cyan);}
+.food-calc-result{margin-top:8px;padding:10px;background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.2);border-radius:8px;font-size:12px;}
+.food-calc-result .fr-total{font-family:'Barlow Condensed',sans-serif;font-size:18px;color:var(--orange);font-weight:700;margin-bottom:4px;}
+.food-calc-result .fr-macro{display:inline-block;margin-right:10px;font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);}
+.food-calc-breakdown{margin-top:6px;font-size:11px;color:var(--muted);line-height:1.6;}
+.food-calc-example{font-size:10px;color:var(--muted2);margin-top:6px;font-style:italic;}
+.food-unknown{color:var(--red);font-weight:600;}
+
+.cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.cal-header .cal-month{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:8px;}
+.cal-dow{font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:1px;text-align:center;padding:4px 0;}
+.cal-day{aspect-ratio:1;background:var(--s1);border:1px solid var(--border);border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;position:relative;transition:all .15s;min-height:36px;overflow:hidden;}
+.cal-day:hover{border-color:var(--orange);}
+.cal-day.other-month{opacity:.25;}
+.cal-day.today{border-color:var(--orange);border-width:2px;}
+.cal-day.selected{background:var(--orange);color:#fff;border-color:var(--orange);}
+.cal-day.score-high{border-left:3px solid var(--green);}
+.cal-day.score-mid{border-left:3px solid var(--orange);}
+.cal-day.score-low{border-left:3px solid var(--red);}
+.cal-day-num{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;line-height:1;}
+.cal-day-score{font-family:'DM Mono',monospace;font-size:8px;color:var(--muted);margin-top:2px;}
+.cal-day.selected .cal-day-score{color:#fff;opacity:.9;}
+.cal-legend{display:flex;gap:10px;justify-content:center;font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);margin-top:6px;flex-wrap:wrap;}
+.cal-legend span{display:flex;align-items:center;gap:4px;}
+.cal-legend .ln{width:3px;height:10px;border-radius:1px;display:inline-block;}
+
+.meal-shifted-badge{display:inline-block;background:rgba(251,191,36,.15);color:var(--yellow);font-size:9px;font-family:'DM Mono',monospace;padding:1px 5px;border-radius:3px;margin-left:4px;letter-spacing:.5px;}
+
+.meal-actual-row{display:flex;align-items:center;gap:8px;padding:8px 10px;background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.25);border-radius:8px;margin-bottom:10px;font-size:12px;color:var(--yellow);}
+.meal-actual-row input{flex:1;background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:5px 8px;color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:14px;outline:none;}
+
+.day-badge{display:inline-block;background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.3);color:var(--cyan);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;padding:3px 8px;border-radius:12px;}
+
+
+
 ::-webkit-scrollbar{width:4px;height:4px;}
 ::-webkit-scrollbar-track{background:transparent;}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
@@ -325,6 +397,7 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 
 <!-- HIDDEN FILE INPUT FOR PHOTOS -->
 <input type="file" id="photoInput" class="hidden-input" accept="image/*">
+<input type="date" id="hiddenDatePicker" class="hidden-input">
 
 
 <!-- ONBOARDING -->
@@ -459,6 +532,7 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
     <button class="nb" onclick="go('plan')">📅 Plan</button>
     <button class="nb" onclick="go('health')">🏥 Health</button>
     <button class="nb" onclick="go('pt')">👨‍🏫 PT</button>
+    <button class="nb" onclick="go('calendar')">🗓️ Calendar</button>
     <button class="nb advanced" onclick="go('longevity')">⚡ Longevity</button>
   </div>
 
@@ -466,6 +540,18 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
   <!-- TAB: TODAY -->
   <!-- ====================================== -->
   <div class="tab on" id="tab-today">
+
+    <!-- DATE NAVIGATOR -->
+    <div class="date-nav">
+      <button class="date-nav-btn" onclick="navDay(-1)" title="Previous day">←</button>
+      <div class="date-nav-main">
+        <div class="date-nav-day" id="dateNavDay">Loading</div>
+        <div class="date-nav-sub" id="dateNavSub">—</div>
+      </div>
+      <button class="date-nav-btn" onclick="openDatePicker()" title="Pick date">📅</button>
+      <button class="date-nav-btn" onclick="navDay(1)" title="Next day" id="nextDayBtn">→</button>
+    </div>
+    <div id="viewingPastBanner"></div>
 
     <div class="st"><div class="st-text">Quick Log</div><div class="st-line"></div></div>
     <div class="qaction-grid">
@@ -545,6 +631,13 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
       <textarea id="dailyNotes" placeholder="How did you feel today? Any observations, PRs, energy level, mood..." style="width:100%;background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:12px;color:var(--text);font-family:'Barlow',sans-serif;font-size:14px;min-height:90px;resize:vertical;outline:none;"></textarea>
       <button class="btn primary full" style="margin-top:10px;" onclick="saveNotes()">Save Notes</button>
     </div>
+
+    <div class="st">
+      <div class="st-text">Events & Deviations Today</div>
+      <div class="st-line"></div>
+      <span class="st-action" onclick="openModal('eventAdd')">+ Add Event</span>
+    </div>
+    <div id="eventTimelineList"></div>
 
     <div class="st">
       <div class="st-text">End of Day Summary</div>
@@ -1114,6 +1207,38 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 
   </div>
 
+
+  <!-- ====================================== -->
+  <!-- TAB: CALENDAR -->
+  <!-- ====================================== -->
+  <div class="tab" id="tab-calendar">
+    <div class="cal-header">
+      <button class="date-nav-btn" onclick="calPrevMonth()">←</button>
+      <div class="cal-month" id="calMonthLabel">Loading</div>
+      <button class="date-nav-btn" onclick="calNextMonth()">→</button>
+    </div>
+    <div class="cal-grid" id="calDowHeader">
+      <div class="cal-dow">SUN</div>
+      <div class="cal-dow">MON</div>
+      <div class="cal-dow">TUE</div>
+      <div class="cal-dow">WED</div>
+      <div class="cal-dow">THU</div>
+      <div class="cal-dow">FRI</div>
+      <div class="cal-dow">SAT</div>
+    </div>
+    <div class="cal-grid" id="calGrid"></div>
+    <div class="cal-legend">
+      <span><span class="ln" style="background:var(--green);"></span> ≥75</span>
+      <span><span class="ln" style="background:var(--orange);"></span> 50-74</span>
+      <span><span class="ln" style="background:var(--red);"></span> &lt;50</span>
+      <span>• No data</span>
+    </div>
+    <div class="st"><div class="st-text">Selected Day Details</div><div class="st-line"></div></div>
+    <div class="card" id="calDaySelected">
+      <div style="text-align:center;color:var(--muted);font-size:12px;padding:12px;">Tap any day on the calendar above to view its details</div>
+    </div>
+  </div>
+
   <!-- ====================================== -->
   <!-- TAB: LONGEVITY -->
   <!-- ====================================== -->
@@ -1234,27 +1359,47 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
   </div>
 </div>
 
-<!-- Meal Edit Modal -->
+<!-- Meal Edit Modal (v6) -->
 <div class="modal" id="modal-mealEdit">
   <div class="modal-content">
     <div class="modal-title"><span id="mealEditTitle">Edit Meal</span> <span class="modal-close" onclick="closeModal('mealEdit')">✕</span></div>
 
+    <!-- Scheduled vs Actual time -->
     <div class="form-row">
       <div class="form-group">
-        <label>Time</label>
+        <label>Scheduled Time</label>
         <input type="time" id="mealEditTime">
       </div>
       <div class="form-group">
-        <label>Calories</label>
-        <input type="number" id="mealEditKcal" step="10">
+        <label>Actual Time Eaten</label>
+        <input type="time" id="mealEditActualTime" placeholder="If different">
       </div>
+    </div>
+
+    <!-- SMART FOOD CALCULATOR -->
+    <div class="food-calc">
+      <label style="display:block;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--muted);margin-bottom:5px;">WHAT DID YOU EAT?</label>
+      <div class="food-calc-input-row">
+        <input type="text" id="mealEatenInput" class="food-calc-input" placeholder="e.g. 200g chicken + 100g rice + salad">
+        <button class="food-calc-btn" onclick="calcFood()">Calc</button>
+        <button class="food-calc-btn sec" onclick="askClaudeForMeal()" title="Use Claude for complex meals">🤖</button>
+      </div>
+      <div id="foodCalcResult"></div>
+      <div class="food-calc-example">Tip: Use + or comma. Works in Arabic: "٢٠٠ جرام دجاج + ١٠٠ جرام أرز"</div>
     </div>
 
     <div class="form-row">
       <div class="form-group">
+        <label>Calories</label>
+        <input type="number" id="mealEditKcal" step="10">
+      </div>
+      <div class="form-group">
         <label>Protein (g)</label>
         <input type="number" id="mealEditProtein" step="1">
       </div>
+    </div>
+
+    <div class="form-row">
       <div class="form-group">
         <label>Carbs (g)</label>
         <input type="number" id="mealEditCarbs" step="1">
@@ -1266,7 +1411,7 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
     </div>
 
     <div class="form-group">
-      <label>Meal Option</label>
+      <label>Meal Option (Preset)</label>
       <select id="mealEditOption">
         <option value="">Custom / Manual</option>
       </select>
@@ -1274,12 +1419,12 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 
     <div class="form-group">
       <label>Notes</label>
-      <textarea id="mealEditNotes" placeholder="What did you actually eat? Any substitutions..."></textarea>
+      <textarea id="mealEditNotes" placeholder="Any notes about this meal..."></textarea>
     </div>
 
     <div class="btn-row">
       <button class="btn danger" onclick="deleteMealLog()">Clear</button>
-      <button class="btn primary full" onclick="saveMealEdit()">Save</button>
+      <button class="btn primary full" onclick="saveMealEdit()">Save & Cascade</button>
     </div>
   </div>
 </div>
@@ -1536,6 +1681,57 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
   </div>
 </div>
 
+
+<!-- Event Add Modal (v6) -->
+<div class="modal" id="modal-eventAdd">
+  <div class="modal-content">
+    <div class="modal-title">📝 Log Event <span class="modal-close" onclick="closeModal('eventAdd')">✕</span></div>
+
+    <label style="display:block;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--muted);margin-bottom:6px;text-transform:uppercase;">Type</label>
+    <div class="event-type-row" id="eventTypeRow">
+      <button class="event-type-btn on" data-type="note" onclick="selEventType(this,'note')">📌 Note</button>
+      <button class="event-type-btn" data-type="deviation" onclick="selEventType(this,'deviation')">⚠️ Deviation</button>
+      <button class="event-type-btn" data-type="workout" onclick="selEventType(this,'workout')">🏋️ Workout</button>
+      <button class="event-type-btn" data-type="meal" onclick="selEventType(this,'meal')">🍽️ Meal</button>
+      <button class="event-type-btn" data-type="sleep" onclick="selEventType(this,'sleep')">😴 Sleep</button>
+      <button class="event-type-btn" data-type="injury" onclick="selEventType(this,'injury')">🩹 Injury</button>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Time</label>
+        <input type="time" id="eventTime">
+      </div>
+      <div class="form-group">
+        <label>Title</label>
+        <input type="text" id="eventTitle" placeholder="e.g. Missed gym, went for walk">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Details</label>
+      <textarea id="eventDesc" placeholder="What happened? Any context..."></textarea>
+    </div>
+
+    <button class="btn primary full" onclick="saveEvent()">Save Event</button>
+  </div>
+</div>
+
+<!-- Ask Claude About Meal Modal -->
+<div class="modal" id="modal-claudeMeal">
+  <div class="modal-content">
+    <div class="modal-title">🤖 Ask Claude <span class="modal-close" onclick="closeModal('claudeMeal')">✕</span></div>
+    <div class="hb cyan" style="font-size:12px;">
+      We'll copy this to your clipboard and open Claude. Paste it in chat and Claude will calculate accurate macros for you.
+    </div>
+    <div class="form-group">
+      <label>Meal description</label>
+      <textarea id="claudeMealText" rows="4" placeholder="e.g. A plate of koshari with lentils, rice, pasta, chickpeas, tomato sauce and crispy onions"></textarea>
+    </div>
+    <button class="btn primary full" onclick="sendClaudeMeal()">Copy & Open Claude</button>
+  </div>
+</div>
+
 <!-- Summary Modal -->
 <div class="modal" id="modal-summary">
   <div class="modal-content">
@@ -1573,10 +1769,41 @@ let state = {
 };
 
 // ══════ HELPERS ══════
+// today() — always current real date
 const today = () => new Date().toISOString().split('T')[0];
+// viewDate() — date currently being viewed (can be past)
+let _viewDate = new Date().toISOString().split('T')[0];
+const viewDate = () => _viewDate;
+const isViewingToday = () => _viewDate === today();
+const setViewDate = (d) => { _viewDate = d; };
+
 const now = () => {
   const d = new Date();
   return `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+};
+
+// Format date for display
+const fmtDateLong = (dateStr) => {
+  const d = new Date(dateStr + 'T12:00:00');
+  return d.toLocaleDateString('en', { weekday: 'long', month: 'long', day: 'numeric' });
+};
+const fmtDateShort = (dateStr) => {
+  const d = new Date(dateStr + 'T12:00:00');
+  return d.toLocaleDateString('en', { weekday: 'short', month: 'short', day: 'numeric' });
+};
+
+// Days since start
+const dayOfJourney = () => {
+  const start = new Date(state.user.startDate + 'T00:00:00');
+  const view = new Date(_viewDate + 'T00:00:00');
+  return Math.floor((view - start) / (1000*60*60*24)) + 1;
+};
+
+// Date arithmetic
+const addDays = (dateStr, delta) => {
+  const d = new Date(dateStr + 'T12:00:00');
+  d.setDate(d.getDate() + delta);
+  return d.toISOString().split('T')[0];
 };
 const toast = (msg, type='success') => {
   const t = document.getElementById('toast');
@@ -1612,14 +1839,22 @@ const loadAll = () => {
   state.achievements = load(LS_ACHIEVEMENTS, []);
 };
 
-const getDay = (date=today()) => {
-  if (!state.days[date]) state.days[date] = freshDay();
-  return state.days[date];
+const getDay = (date) => {
+  const d = date || _viewDate;
+  if (!state.days[d]) state.days[d] = freshDay();
+  return state.days[d];
+};
+// Always get TODAY's real day (for smart notifs)
+const getRealTodayDay = () => {
+  const t = today();
+  if (!state.days[t]) state.days[t] = freshDay();
+  return state.days[t];
 };
 
 const freshDay = () => ({
   water: 0,
   meals: {},
+  mealTimesOverride: {}, // per-day time overrides (if different from scheduled)
   workout: null,
   sleep: null,
   supplements: { d3:false, omega3:false, creatine:false, magnesium:false, multi:false },
@@ -1627,8 +1862,213 @@ const freshDay = () => ({
   notes: '',
   photos: {},
   measurements: null,
-  dailyScore: 0
+  dailyScore: 0,
+  events: [] // [{id, type, time, title, desc}]
 });
+
+// ═══════════════════════════════════════════════════════════
+// FOOD DATABASE — per 100g unless noted otherwise
+// Each: {kcal, p: protein, c: carbs, f: fats, alt: [names]}
+// ═══════════════════════════════════════════════════════════
+const FOOD_DB = {
+  // MEATS - per 100g cooked
+  'chicken': { kcal:165, p:31, c:0, f:3.6, alt:['دجاج','فراخ','chicken breast','صدر فراخ'] },
+  'chicken_thigh': { kcal:209, p:26, c:0, f:11, alt:['ورك فراخ','chicken thigh','chicken legs'] },
+  'beef': { kcal:250, p:26, c:0, f:15, alt:['لحم','لحمة','beef','veal','بتلو'] },
+  'beef_lean': { kcal:170, p:28, c:0, f:6, alt:['لحم قليل دهن','لحم مفروم','ground beef','kafta','كفتة'] },
+  'fish_tuna': { kcal:132, p:28, c:0, f:1, alt:['تونة','tuna'] },
+  'fish_salmon': { kcal:208, p:22, c:0, f:13, alt:['سلمون','salmon'] },
+  'fish_white': { kcal:110, p:23, c:0, f:2, alt:['سمك','فيليه سمك','fish','nile perch','بلطي','tilapia'] },
+  'fish_mackerel': { kcal:205, p:19, c:0, f:14, alt:['ماكريل','بساريا','mackerel','sardine','سردين'] },
+  'shrimp': { kcal:99, p:24, c:0, f:0.3, alt:['جمبري','shrimp','prawns'] },
+  'liver': { kcal:175, p:26, c:4, f:5, alt:['كبدة','liver'] },
+
+  // EGGS & DAIRY
+  'egg_whole': { kcal:72, p:6, c:0.4, f:5, per:'egg', alt:['بيضة','بيض','egg'] },
+  'egg_white': { kcal:17, p:3.6, c:0.2, f:0.1, per:'white', alt:['بياض بيض','egg white'] },
+  'yogurt_greek': { kcal:59, p:10, c:3.6, f:0.4, alt:['زبادي يوناني','greek yogurt'] },
+  'yogurt': { kcal:61, p:3.5, c:4.7, f:3.3, alt:['زبادي','yogurt','laban','لبنة'] },
+  'cottage_cheese': { kcal:98, p:11, c:3.4, f:4.3, alt:['قريش','جبنة قريش','cottage cheese'] },
+  'feta': { kcal:264, p:14, c:4, f:21, alt:['فيتا','feta','جبنة بيضاء','white cheese'] },
+  'mozzarella': { kcal:280, p:28, c:3, f:17, alt:['موتزاريلا','mozzarella','جبنة رومي'] },
+  'milk_whole': { kcal:61, p:3.2, c:4.8, f:3.3, alt:['لبن','حليب','milk','لبن كامل الدسم'] },
+  'milk_skim': { kcal:34, p:3.4, c:5, f:0.1, alt:['لبن خالي دسم','skim milk','لبن نص دسم'] },
+
+  // CARBS / GRAINS
+  'rice_cooked': { kcal:130, p:2.7, c:28, f:0.3, alt:['أرز','أرز أبيض','rice','cooked rice'] },
+  'rice_brown': { kcal:111, p:2.6, c:23, f:0.9, alt:['أرز بني','brown rice'] },
+  'balila': { kcal:342, p:13, c:70, f:2, alt:['بليلة','قمح','cracked wheat','بليله','wheat'] },
+  'pasta': { kcal:158, p:5.8, c:31, f:0.9, alt:['مكرونة','pasta','spaghetti','noodles'] },
+  'bread_white': { kcal:265, p:9, c:49, f:3.2, alt:['عيش','عيش أبيض','خبز','bread','white bread'] },
+  'bread_baladi': { kcal:247, p:8, c:51, f:1.5, alt:['عيش بلدي','عيش شمسي','baladi bread','pita'] },
+  'bread_whole': { kcal:247, p:13, c:41, f:4, alt:['عيش أسمر','whole wheat bread','عيش قمح كامل'] },
+  'oats': { kcal:389, p:17, c:66, f:7, alt:['شوفان','oats','oatmeal'] },
+  'quinoa': { kcal:120, p:4.4, c:21, f:1.9, alt:['كينوا','quinoa'] },
+  'bulgur': { kcal:342, p:12, c:76, f:1.3, alt:['برغل','bulgur','bulghur'] },
+
+  // POTATOES / TUBERS
+  'potato_boiled': { kcal:87, p:1.9, c:20, f:0.1, alt:['بطاطس','بطاطس مسلوقة','boiled potato','potato'] },
+  'potato_mashed': { kcal:113, p:2, c:17, f:4.2, alt:['بطاطس مهروسة','mashed potato','puree'] },
+  'potato_fries': { kcal:312, p:3.4, c:41, f:15, alt:['بطاطس محمرة','بطاطس مقلية','fries','chips'] },
+  'sweet_potato': { kcal:86, p:1.6, c:20, f:0.1, alt:['بطاطا','سويت بوتيتو','sweet potato'] },
+
+  // LEGUMES
+  'beans_fava': { kcal:110, p:7.6, c:19, f:0.4, alt:['فول','فول مدمس','fava beans','foul'] },
+  'lentils': { kcal:116, p:9, c:20, f:0.4, alt:['عدس','شوربة عدس','lentils','lentil soup'] },
+  'chickpeas': { kcal:164, p:8.9, c:27, f:2.6, alt:['حمص','chickpeas','garbanzo'] },
+  'falafel': { kcal:333, p:13, c:32, f:18, alt:['طعمية','فلافل','falafel','taameya'] },
+
+  // VEGETABLES
+  'salad': { kcal:20, p:1, c:3.6, f:0.2, alt:['سلطة','سلطة خضراء','salad','green salad'] },
+  'tomato': { kcal:18, p:0.9, c:3.9, f:0.2, alt:['طماطم','tomato'] },
+  'cucumber': { kcal:16, p:0.7, c:3.6, f:0.1, alt:['خيار','cucumber'] },
+  'onion': { kcal:40, p:1.1, c:9.3, f:0.1, alt:['بصل','onion'] },
+  'spinach': { kcal:23, p:2.9, c:3.6, f:0.4, alt:['سبانخ','spinach'] },
+  'okra': { kcal:33, p:1.9, c:7, f:0.2, alt:['بامية','okra','bamya'] },
+  'molokhia': { kcal:50, p:3, c:9, f:0.4, alt:['ملوخية','molokhia','jews mallow'] },
+  'zucchini': { kcal:17, p:1.2, c:3.1, f:0.3, alt:['كوسة','zucchini'] },
+  'eggplant': { kcal:25, p:1, c:5.9, f:0.2, alt:['باذنجان','eggplant','aubergine'] },
+  'cabbage': { kcal:25, p:1.3, c:5.8, f:0.1, alt:['كرنب','cabbage'] },
+  'broccoli': { kcal:34, p:2.8, c:6.6, f:0.4, alt:['بروكلي','broccoli'] },
+  'carrot': { kcal:41, p:0.9, c:9.6, f:0.2, alt:['جزر','carrot'] },
+  'pepper': { kcal:31, p:1, c:6, f:0.3, alt:['فلفل','فلفل أخضر','pepper','bell pepper'] },
+
+  // FRUITS
+  'apple': { kcal:52, p:0.3, c:14, f:0.2, alt:['تفاح','apple'] },
+  'banana': { kcal:89, p:1.1, c:23, f:0.3, alt:['موز','banana'] },
+  'orange': { kcal:47, p:0.9, c:12, f:0.1, alt:['برتقال','orange'] },
+  'strawberry': { kcal:32, p:0.7, c:7.7, f:0.3, alt:['فراولة','strawberry','strawberries'] },
+  'grapes': { kcal:69, p:0.7, c:18, f:0.2, alt:['عنب','grapes'] },
+  'watermelon': { kcal:30, p:0.6, c:7.6, f:0.2, alt:['بطيخ','watermelon'] },
+  'dates': { kcal:277, p:1.8, c:75, f:0.2, alt:['بلح','تمر','dates'] },
+  'mango': { kcal:60, p:0.8, c:15, f:0.4, alt:['مانجا','مانجو','mango'] },
+  'guava': { kcal:68, p:2.6, c:14, f:1, alt:['جوافة','guava'] },
+  'berries': { kcal:57, p:0.7, c:14, f:0.3, alt:['توت','blueberry','blueberries','raspberries'] },
+
+  // NUTS & SEEDS
+  'almonds': { kcal:579, p:21, c:22, f:50, alt:['لوز','almond','almonds'] },
+  'walnuts': { kcal:654, p:15, c:14, f:65, alt:['عين جمل','walnut','walnuts'] },
+  'peanuts': { kcal:567, p:26, c:16, f:49, alt:['فول سوداني','peanut','peanuts','peanut butter','زبدة فول سوداني'] },
+  'cashew': { kcal:553, p:18, c:30, f:44, alt:['كاجو','cashew'] },
+
+  // FATS & OILS
+  'olive_oil': { kcal:884, p:0, c:0, f:100, alt:['زيت زيتون','olive oil'] },
+  'butter': { kcal:717, p:0.9, c:0.1, f:81, alt:['زبدة','butter','سمنة','ghee'] },
+  'mayo': { kcal:680, p:1, c:0.6, f:75, alt:['مايونيز','mayo','mayonnaise'] },
+  'avocado': { kcal:160, p:2, c:9, f:15, alt:['أفوكادو','avocado'] },
+  'tahini': { kcal:595, p:17, c:21, f:54, alt:['طحينة','tahini','طحينه'] },
+
+  // SUPPLEMENTS / PROTEIN PRODUCTS
+  'whey_scoop': { kcal:120, p:25, c:2, f:1, per:'scoop', alt:['whey','protein','isopro','iso100','dymatize','مكمل بروتين','سكوب واي','scoop'] },
+  'ehrmann': { kcal:185, p:35, c:10, f:0.5, per:'carton', alt:['ehrmann','ايرمان','protein drink','high protein'] },
+  'casein_scoop': { kcal:110, p:24, c:3, f:0.5, per:'scoop', alt:['casein','كازين','slow protein'] },
+
+  // EGYPTIAN DISHES - per 100g
+  'koshari': { kcal:160, p:6, c:30, f:2.5, alt:['كشري','koshary','koshari'] },
+  'mahshi': { kcal:130, p:3, c:20, f:4, alt:['محشي','محشى','mahshi','stuffed vegetables'] },
+  'shawarma': { kcal:220, p:20, c:12, f:11, alt:['شاورما','shawerma','shawarma'] },
+  'mombar': { kcal:280, p:9, c:14, f:20, alt:['ممبار','mombar'] },
+  'fatta': { kcal:210, p:11, c:22, f:9, alt:['فتة','فتة باللحمة','fatta'] },
+  'hawawshi': { kcal:250, p:16, c:20, f:12, alt:['حواوشي','hawawshi'] },
+
+  // DRINKS
+  'coffee_black': { kcal:2, p:0.3, c:0, f:0, alt:['قهوة','coffee','nescafe','نسكافيه','أمريكانو'] },
+  'tea': { kcal:1, p:0, c:0.3, f:0, alt:['شاي','tea'] },
+  'juice_orange': { kcal:45, p:0.7, c:10, f:0.2, alt:['عصير برتقال','orange juice','oj'] },
+  'soda': { kcal:41, p:0, c:11, f:0, alt:['كوكاكولا','بيبسي','soda','coke','cola','pepsi'] },
+  'soda_diet': { kcal:0, p:0, c:0, f:0, alt:['دايت كوك','diet coke','coke zero','دايت'] },
+
+  // SNACKS
+  'popcorn': { kcal:387, p:12, c:78, f:4.5, alt:['فشار','popcorn'] },
+  'chocolate_dark': { kcal:546, p:4.9, c:61, f:31, alt:['شوكولاتة','شوكولاتة دارك','dark chocolate'] },
+  'chocolate_milk': { kcal:546, p:7.7, c:59, f:30, alt:['شوكولاتة بلبن','milk chocolate','galaxy','kitkat'] },
+  'biscuit': { kcal:353, p:7.4, c:75, f:6, alt:['بسكويت','biscuit','cookie','cookies','oreo','اوريو'] },
+  'chips': { kcal:536, p:7, c:53, f:35, alt:['شيبسي','chipsy','chips','lays','crisps'] },
+};
+
+// Simple tokenizer: accepts "200g chicken + 100g rice + salad"
+// Returns { kcal, p, c, f, breakdown: [{name, qty, unit, kcal, ...}] }
+function parseFood(text) {
+  if (!text || !text.trim()) return null;
+
+  const items = [];
+  const parts = text.split(/[+,،و]|and/i).map(s => s.trim()).filter(Boolean);
+
+  parts.forEach(part => {
+    // Extract quantity + unit + name
+    // Patterns: "200g chicken", "2 eggs", "1 scoop whey", "٢ بيض"
+    const arabicNums = { '٠':0,'١':1,'٢':2,'٣':3,'٤':4,'٥':5,'٦':6,'٧':7,'٨':8,'٩':9 };
+    let normalized = part.replace(/[٠-٩]/g, c => arabicNums[c]);
+    normalized = normalized.trim();
+
+    // Match qty + unit + rest
+    const match = normalized.match(/^(\d+(?:\.\d+)?)\s*(g|kg|ml|l|cup|cups|scoop|scoops|tbsp|tsp|slice|slices|piece|pieces|carton|cartons)?\s*(?:of\s+)?(.+)$/i);
+    let qty = 100, unit = 'g', name = normalized;
+    if (match) {
+      qty = parseFloat(match[1]);
+      unit = (match[2] || 'g').toLowerCase();
+      name = match[3].trim().toLowerCase();
+    } else {
+      // Just a name, assume 100g
+      name = normalized.toLowerCase();
+    }
+
+    // Find food in database by name or alt
+    let food = null, foodKey = null;
+    for (const [key, data] of Object.entries(FOOD_DB)) {
+      if (data.alt.some(a => name.includes(a.toLowerCase()) || a.toLowerCase().includes(name))) {
+        food = data; foodKey = key; break;
+      }
+    }
+
+    if (!food) {
+      items.push({ name: part, qty, unit, kcal:0, p:0, c:0, f:0, unknown:true });
+      return;
+    }
+
+    // Convert to 100g equivalent
+    let factor = 1;
+    if (food.per === 'egg' || food.per === 'white') {
+      factor = qty; // qty = number of eggs
+    } else if (food.per === 'scoop' || food.per === 'carton') {
+      factor = qty;
+    } else {
+      // Weight-based
+      if (unit === 'kg') factor = qty * 10;
+      else if (unit === 'g' || !unit) factor = qty / 100;
+      else if (unit === 'cup' || unit === 'cups') factor = (qty * 150) / 100; // approx cup = 150g
+      else if (unit === 'tbsp') factor = (qty * 15) / 100;
+      else if (unit === 'tsp') factor = (qty * 5) / 100;
+      else if (unit === 'slice' || unit === 'slices') factor = (qty * 30) / 100;
+      else if (unit === 'piece' || unit === 'pieces') factor = qty;
+      else factor = qty / 100;
+    }
+
+    items.push({
+      name: foodKey,
+      display: part,
+      qty, unit,
+      kcal: Math.round(food.kcal * factor),
+      p: Math.round(food.p * factor * 10) / 10,
+      c: Math.round(food.c * factor * 10) / 10,
+      f: Math.round(food.f * factor * 10) / 10
+    });
+  });
+
+  const total = items.reduce((acc, it) => ({
+    kcal: acc.kcal + it.kcal,
+    p: acc.p + it.p,
+    c: acc.c + it.c,
+    f: acc.f + it.f
+  }), { kcal:0, p:0, c:0, f:0 });
+
+  total.kcal = Math.round(total.kcal);
+  total.p = Math.round(total.p * 10) / 10;
+  total.c = Math.round(total.c * 10) / 10;
+  total.f = Math.round(total.f * 10) / 10;
+  total.breakdown = items;
+  return total;
+}
 
 // ══════ CALCULATIONS ══════
 const calcBMR = () => {
@@ -1844,6 +2284,7 @@ function renderAll() {
   renderAchievementsTab();
   renderPlanTab();
   renderHealthTab();
+  renderCalendar();
   checkSmartNotif();
 }
 
@@ -1860,18 +2301,81 @@ function renderHeader() {
   document.getElementById('qs_lost').textContent = prog.lost;
   document.getElementById('qs_pct').textContent = prog.pct + '%';
 
+  // Score shows the VIEWED day
   const day = getDay();
   document.getElementById('qs_score').textContent = day.dailyScore || 0;
 }
 
 // ══════ TODAY TAB ══════
 function renderTodayTab() {
+  renderDateNav();
   renderWater();
   renderMealList('mealList', true);
   renderChecklist();
   renderScore();
   renderNotes();
+  renderEventTimeline();
   renderEodSummary();
+}
+
+function renderDateNav() {
+  const el = document.getElementById('dateNavDay');
+  if (!el) return;
+  const day = dayOfJourney();
+  el.textContent = fmtDateLong(_viewDate);
+  const sub = document.getElementById('dateNavSub');
+  if (isViewingToday()) {
+    sub.textContent = `TODAY · DAY ${day} OF JOURNEY`;
+    sub.className = 'date-nav-sub today';
+  } else {
+    const t = new Date(today() + 'T12:00:00');
+    const v = new Date(_viewDate + 'T12:00:00');
+    const diff = Math.round((t - v) / (1000*60*60*24));
+    sub.textContent = diff > 0 ? `${diff} DAYS AGO · DAY ${day}` : `${Math.abs(diff)} DAYS AHEAD`;
+    sub.className = 'date-nav-sub past';
+  }
+  // Banner + disable "next" if today
+  const banner = document.getElementById('viewingPastBanner');
+  if (!isViewingToday()) {
+    banner.innerHTML = `<div class="viewing-past">📅 Viewing ${fmtDateShort(_viewDate)}. <span style="color:var(--cyan);cursor:pointer;" onclick="jumpToToday()">Return to today →</span></div>`;
+  } else {
+    banner.innerHTML = '';
+  }
+  const nxt = document.getElementById('nextDayBtn');
+  if (nxt) nxt.classList.toggle('disabled', isViewingToday());
+}
+
+function navDay(delta) {
+  const next = addDays(_viewDate, delta);
+  // Don't go into future
+  if (next > today()) return;
+  // Don't go before start date
+  if (state.user.startDate && next < state.user.startDate) {
+    toast('Cannot go before your start date');
+    return;
+  }
+  _viewDate = next;
+  renderAll();
+}
+
+function openDatePicker() {
+  const inp = document.getElementById('hiddenDatePicker');
+  inp.max = today();
+  if (state.user.startDate) inp.min = state.user.startDate;
+  inp.value = _viewDate;
+  inp.onchange = (e) => {
+    const d = e.target.value;
+    if (d && d <= today()) {
+      _viewDate = d;
+      renderAll();
+    }
+  };
+  inp.click();
+}
+
+function jumpToToday() {
+  _viewDate = today();
+  renderAll();
 }
 
 function renderWater() {
@@ -1911,6 +2415,48 @@ function toggleCup(i) {
   renderHeader();
 }
 
+// When user eats late, shift following meals by same delta
+function cascadeMealTimes(mealKey, actualTime) {
+  const scheduled = state.settings.mealTimes[mealKey];
+  if (!scheduled || !actualTime) return;
+  const [sh, sm] = scheduled.split(':').map(Number);
+  const [ah, am] = actualTime.split(':').map(Number);
+  const deltaMin = (ah*60 + am) - (sh*60 + sm);
+  if (Math.abs(deltaMin) < 15) return; // < 15 min diff, ignore
+
+  const day = getDay();
+  if (!day.mealTimesOverride) day.mealTimesOverride = {};
+
+  // Find meals AFTER this one
+  const idx = MEAL_ORDER.indexOf(mealKey);
+  if (idx < 0) return;
+
+  for (let i = idx + 1; i < MEAL_ORDER.length; i++) {
+    const k = MEAL_ORDER[i];
+    // Don't override if already done
+    if (day.meals[k]?.done) continue;
+    // Don't override dinner beyond 22:00
+    const origTime = state.settings.mealTimes[k];
+    const [oh, om] = origTime.split(':').map(Number);
+    let newMin = oh*60 + om + deltaMin;
+    // Cap dinner at 22:00
+    if (k === 'dinner' && newMin > 22*60) newMin = 22*60;
+    newMin = Math.max(0, Math.min(24*60-1, newMin));
+    const hh = String(Math.floor(newMin/60)).padStart(2,'0');
+    const mm = String(newMin%60).padStart(2,'0');
+    day.mealTimesOverride[k] = `${hh}:${mm}`;
+  }
+  saveAll();
+  toast(`🔄 Shifted ${MEAL_ORDER.length - idx - 1} meals by ${deltaMin>0?'+':''}${deltaMin} min`);
+}
+
+// Get effective meal time (override or default)
+function getMealTime(key) {
+  const day = getDay();
+  if (day.mealTimesOverride && day.mealTimesOverride[key]) return day.mealTimesOverride[key];
+  return state.settings.mealTimes[key];
+}
+
 function renderMealList(elementId, compact=false) {
   const el = document.getElementById(elementId);
   if (!el) return;
@@ -1924,13 +2470,15 @@ function renderMealList(elementId, compact=false) {
   })();
 
   MEAL_ORDER.forEach(mealKey => {
-    const time = times[mealKey];
+    const time = getMealTime(mealKey);
+    const schedTime = state.settings.mealTimes[mealKey];
+    const shifted = time !== schedTime;
     const [h,m] = time.split(':').map(Number);
     const mealMin = h*60 + m;
     const meal = day.meals[mealKey];
     const done = meal && meal.done;
-    const missed = !done && currentMin > mealMin + 60;
-    const upcoming = !done && currentMin >= mealMin - 30 && currentMin <= mealMin + 60;
+    const missed = !done && isViewingToday() && currentMin > mealMin + 60;
+    const upcoming = !done && isViewingToday() && currentMin >= mealMin - 30 && currentMin <= mealMin + 60;
 
     const item = document.createElement('div');
     item.className = 'meal-item' + (done ? ' done' : missed ? ' missed' : upcoming ? ' upcoming' : '');
@@ -1939,12 +2487,13 @@ function renderMealList(elementId, compact=false) {
     const kcal = meal?.kcal || preset.kcal;
     const p = meal?.protein || preset.p;
     const notes = meal?.notes || '';
+    const actualTime = meal?.actualTime;
 
     item.innerHTML = `
       <div class="meal-icon">${MEAL_ICONS[mealKey]}</div>
       <div class="meal-body">
-        <div class="meal-name">${MEAL_NAMES[mealKey]}</div>
-        <div class="meal-time">${time} · ${kcal} kcal · ${p}g protein</div>
+        <div class="meal-name">${MEAL_NAMES[mealKey]}${shifted ? '<span class="meal-shifted-badge">SHIFTED</span>' : ''}</div>
+        <div class="meal-time">${time}${actualTime && actualTime !== time ? ' (ate @ '+actualTime+')' : ''} · ${kcal} kcal · ${p}g protein</div>
         ${notes ? `<div class="meal-details">💬 ${notes}</div>` : ''}
       </div>
       <div class="meal-check" onclick="event.stopPropagation();toggleMeal('${mealKey}')">${done ? '✓' : ''}</div>
@@ -1956,11 +2505,13 @@ function renderMealList(elementId, compact=false) {
 
 function toggleMeal(key) {
   const day = getDay();
+  const currentTime = isViewingToday() ? now() : getMealTime(key);
   if (!day.meals[key]) {
     const preset = MEAL_PRESETS[key][0];
     day.meals[key] = {
       done: true,
-      time: state.settings.mealTimes[key],
+      time: getMealTime(key),
+      actualTime: currentTime,
       kcal: preset.kcal,
       protein: preset.p,
       carbs: preset.c,
@@ -1968,8 +2519,16 @@ function toggleMeal(key) {
       notes: '',
       option: 0
     };
+    // Cascade following meals if late (only for today)
+    if (isViewingToday()) {
+      cascadeMealTimes(key, currentTime);
+    }
   } else {
     day.meals[key].done = !day.meals[key].done;
+    if (day.meals[key].done && !day.meals[key].actualTime) {
+      day.meals[key].actualTime = currentTime;
+      if (isViewingToday()) cascadeMealTimes(key, currentTime);
+    }
   }
   saveAll();
   calculateScore();
@@ -2220,6 +2779,292 @@ function checkSmartNotif() {
   }
 }
 
+
+// ══════ v6: FOOD CALCULATOR ══════
+function calcFood() {
+  const txt = document.getElementById('mealEatenInput').value;
+  const result = parseFood(txt);
+  const el = document.getElementById('foodCalcResult');
+  if (!result) {
+    el.innerHTML = '';
+    return;
+  }
+  const unknown = result.breakdown.filter(b => b.unknown);
+  el.innerHTML = `
+    <div class="food-calc-result">
+      <div class="fr-total">${result.kcal} kcal</div>
+      <div>
+        <span class="fr-macro">🥩 ${result.p}g protein</span>
+        <span class="fr-macro">🍚 ${result.c}g carbs</span>
+        <span class="fr-macro">🥑 ${result.f}g fats</span>
+      </div>
+      <div class="food-calc-breakdown">
+        ${result.breakdown.map(b => b.unknown
+          ? `<div class="food-unknown">⚠️ Unknown: "${b.name}" — use 🤖 Ask Claude</div>`
+          : `<div>• ${b.display}: ${b.kcal} kcal / ${b.p}g P</div>`
+        ).join('')}
+      </div>
+    </div>
+  `;
+  // Auto-fill the fields
+  if (unknown.length === 0) {
+    document.getElementById('mealEditKcal').value = result.kcal;
+    document.getElementById('mealEditProtein').value = result.p;
+    document.getElementById('mealEditCarbs').value = result.c;
+    document.getElementById('mealEditFats').value = result.f;
+    toast('Calculated & filled ✓');
+  } else if (unknown.length < result.breakdown.length) {
+    toast('Partial calc — click 🤖 for unknown items', 'warn');
+  } else {
+    toast('No items recognized — use 🤖', 'warn');
+  }
+}
+
+function askClaudeForMeal() {
+  const mealText = document.getElementById('mealEatenInput').value || '';
+  document.getElementById('claudeMealText').value = mealText;
+  closeModal('mealEdit');
+  openModal('claudeMeal');
+}
+
+function sendClaudeMeal() {
+  const txt = document.getElementById('claudeMealText').value;
+  if (!txt.trim()) { toast('Describe the meal first','error'); return; }
+
+  const prompt = `Hi Claude! I'm Mohammed Rady tracking calories. Please calculate accurate macros for this meal:\n\n"${txt}"\n\nReply with ONLY this format (numbers only):\nCalories: XXX\nProtein: XXg\nCarbs: XXg\nFats: XXg\n\nThanks!`;
+
+  navigator.clipboard.writeText(prompt).then(() => {
+    toast('Copied — opening Claude...');
+    closeModal('claudeMeal');
+    setTimeout(() => {
+      window.open('https://claude.ai/new', '_blank');
+      // Re-open meal edit so user can paste results
+      setTimeout(() => openModal('mealEdit'), 500);
+    }, 700);
+  }).catch(() => toast('Copy failed','error'));
+}
+
+// ══════ v6: EVENTS & DEVIATIONS ══════
+let _currentEventType = 'note';
+
+function selEventType(btn, type) {
+  _currentEventType = type;
+  document.querySelectorAll('.event-type-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+}
+
+function saveEvent() {
+  const day = getDay();
+  if (!day.events) day.events = [];
+  const time = document.getElementById('eventTime').value || now();
+  const title = document.getElementById('eventTitle').value.trim();
+  const desc = document.getElementById('eventDesc').value.trim();
+  if (!title) { toast('Add a title','error'); return; }
+
+  day.events.push({
+    id: 'e_' + Date.now(),
+    type: _currentEventType,
+    time,
+    title,
+    desc
+  });
+  saveAll();
+  closeModal('eventAdd');
+  renderEventTimeline();
+
+  // Clear form
+  document.getElementById('eventTitle').value = '';
+  document.getElementById('eventDesc').value = '';
+  _currentEventType = 'note';
+  document.querySelectorAll('.event-type-btn').forEach(b => b.classList.remove('on'));
+  const noteBtn = document.querySelector('.event-type-btn[data-type="note"]');
+  if (noteBtn) noteBtn.classList.add('on');
+
+  toast('Event logged 📝');
+}
+
+function deleteEvent(id) {
+  const day = getDay();
+  if (!day.events) return;
+  day.events = day.events.filter(e => e.id !== id);
+  saveAll();
+  renderEventTimeline();
+  toast('Event removed');
+}
+
+const EVENT_ICONS = {
+  note: '📌',
+  deviation: '⚠️',
+  workout: '🏋️',
+  meal: '🍽️',
+  sleep: '😴',
+  injury: '🩹'
+};
+
+function renderEventTimeline() {
+  const el = document.getElementById('eventTimelineList');
+  if (!el) return;
+  const day = getDay();
+  const events = (day.events || []).slice().sort((a,b) => (a.time || '').localeCompare(b.time || ''));
+
+  if (events.length === 0) {
+    el.innerHTML = `<div class="card" style="padding:16px;text-align:center;color:var(--muted);font-size:12px;">
+      No events logged for this day yet.
+      <div style="margin-top:6px;font-size:11px;">Track deviations, extra workouts, sleep changes, injuries, or any notes.</div>
+    </div>`;
+    return;
+  }
+
+  el.innerHTML = `<div class="event-timeline">${events.map(e => `
+    <div class="event-item ${e.type}">
+      <button class="event-delete" onclick="deleteEvent('${e.id}')" title="Delete">✕</button>
+      <div class="event-time">${e.time || '--:--'} · ${EVENT_ICONS[e.type] || '📌'} ${e.type.toUpperCase()}</div>
+      <div class="event-title">${e.title}</div>
+      ${e.desc ? `<div class="event-desc">${e.desc.replace(/\n/g,'<br>')}</div>` : ''}
+    </div>
+  `).join('')}</div>`;
+}
+
+// Open event modal with default time
+const _originalOpenModal = typeof openModal === 'function' ? openModal : null;
+
+// ══════ v6: CALENDAR TAB ══════
+let _calMonth = null; // {year, month}
+
+function renderCalendar() {
+  if (!_calMonth) {
+    const d = new Date();
+    _calMonth = { year: d.getFullYear(), month: d.getMonth() };
+  }
+  const { year, month } = _calMonth;
+  document.getElementById('calMonthLabel').textContent =
+    new Date(year, month, 1).toLocaleDateString('en', { month: 'long', year: 'numeric' });
+
+  const first = new Date(year, month, 1);
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const startDay = first.getDay(); // 0 = Sunday
+
+  const grid = document.getElementById('calGrid');
+  let cells = '';
+  const prevMonthDays = new Date(year, month, 0).getDate();
+  // Fill leading blanks with prev-month days
+  for (let i = startDay - 1; i >= 0; i--) {
+    const d = prevMonthDays - i;
+    cells += `<div class="cal-day other-month"><div class="cal-day-num">${d}</div></div>`;
+  }
+  // Current month days
+  const todayStr = today();
+  for (let d = 1; d <= daysInMonth; d++) {
+    const dateStr = `${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const data = state.days[dateStr];
+    const score = data?.dailyScore || 0;
+    let cls = 'cal-day';
+    if (dateStr === todayStr) cls += ' today';
+    if (dateStr === _viewDate) cls += ' selected';
+    if (data) {
+      if (score >= 75) cls += ' score-high';
+      else if (score >= 50) cls += ' score-mid';
+      else if (score > 0) cls += ' score-low';
+    }
+    cells += `<div class="${cls}" onclick="calSelectDay('${dateStr}')">
+      <div class="cal-day-num">${d}</div>
+      ${data && score > 0 ? `<div class="cal-day-score">${score}</div>` : ''}
+    </div>`;
+  }
+  // Trailing blanks
+  const totalCells = startDay + daysInMonth;
+  const remaining = (7 - (totalCells % 7)) % 7;
+  for (let i = 1; i <= remaining; i++) {
+    cells += `<div class="cal-day other-month"><div class="cal-day-num">${i}</div></div>`;
+  }
+  grid.innerHTML = cells;
+
+  renderCalDayDetail();
+}
+
+function calPrevMonth() {
+  _calMonth.month--;
+  if (_calMonth.month < 0) { _calMonth.month = 11; _calMonth.year--; }
+  renderCalendar();
+}
+function calNextMonth() {
+  _calMonth.month++;
+  if (_calMonth.month > 11) { _calMonth.month = 0; _calMonth.year++; }
+  renderCalendar();
+}
+
+function calSelectDay(dateStr) {
+  if (dateStr > today()) { toast('Cannot view future days'); return; }
+  _viewDate = dateStr;
+  renderCalendar();
+  renderCalDayDetail();
+  toast(`Selected ${fmtDateShort(dateStr)}`);
+}
+
+function renderCalDayDetail() {
+  const el = document.getElementById('calDaySelected');
+  if (!el) return;
+  const data = state.days[_viewDate];
+  if (!data) {
+    el.innerHTML = `<div style="text-align:center;padding:16px;color:var(--muted);font-size:12px;">No data for ${fmtDateShort(_viewDate)}.</div>`;
+    return;
+  }
+  let mealsDone = 0, kcal = 0, protein = 0;
+  Object.values(data.meals || {}).forEach(m => {
+    if (m.done) { mealsDone++; kcal += m.kcal || 0; protein += m.protein || 0; }
+  });
+  const supps = Object.values(data.supplements || {}).filter(Boolean).length;
+  const eventCount = (data.events || []).length;
+
+  el.innerHTML = `
+    <div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;margin-bottom:12px;">${fmtDateLong(_viewDate)}</div>
+    <div class="day-detail-stats">
+      <div class="day-detail-stat"><div class="v" style="color:var(--orange);">${data.dailyScore || 0}</div><div class="l">SCORE</div></div>
+      <div class="day-detail-stat"><div class="v" style="color:var(--cyan);">${data.weight || '—'}</div><div class="l">WEIGHT</div></div>
+      <div class="day-detail-stat"><div class="v" style="color:var(--green);">${mealsDone}/6</div><div class="l">MEALS</div></div>
+      <div class="day-detail-stat"><div class="v" style="color:var(--orange);">${kcal}</div><div class="l">KCAL</div></div>
+      <div class="day-detail-stat"><div class="v" style="color:var(--orange);">${protein}g</div><div class="l">PROTEIN</div></div>
+      <div class="day-detail-stat"><div class="v" style="color:var(--cyan);">${Math.round(((data.water||0)/1000)*10)/10}L</div><div class="l">WATER</div></div>
+      <div class="day-detail-stat"><div class="v" style="color:${data.workout?.done?'var(--green)':'var(--muted)'};">${data.workout?.done?'✓':'—'}</div><div class="l">WORKOUT</div></div>
+      <div class="day-detail-stat"><div class="v" style="color:var(--purple);">${data.sleep?.hours?.toFixed(1) || '—'}${data.sleep?.hours?'h':''}</div><div class="l">SLEEP</div></div>
+      <div class="day-detail-stat"><div class="v" style="color:var(--yellow);">${eventCount}</div><div class="l">EVENTS</div></div>
+    </div>
+    ${data.notes ? `<div style="background:var(--s2);border-radius:10px;padding:12px;font-size:13px;line-height:1.5;color:var(--muted);"><strong style="color:var(--text);">Notes:</strong><br>${data.notes.replace(/\n/g,'<br>')}</div>` : ''}
+    <button class="btn primary full" style="margin-top:12px;" onclick="_viewDate='${_viewDate}';go('today');">View Full Day</button>
+  `;
+}
+
+// ══════ v6: ROLLOVER CHECK ══════
+function checkRollover() {
+  const realToday = today();
+  const lastOpen = localStorage.getItem('mrady_last_open');
+  localStorage.setItem('mrady_last_open', realToday);
+
+  if (!lastOpen || lastOpen === realToday) return;
+
+  // User is opening on a new day after last session
+  // If viewing yesterday, show rollover prompt
+  if (_viewDate < realToday) {
+    // Only show if yesterday has some data
+    const y = state.days[lastOpen];
+    if (y && (y.dailyScore > 0 || (y.events || []).length > 0)) {
+      setTimeout(() => {
+        const proceed = confirm(`🌅 New day! You were on ${fmtDateShort(lastOpen)}.\n\nReview yesterday's summary before starting today?`);
+        if (proceed) {
+          _viewDate = lastOpen;
+          renderAll();
+        } else {
+          _viewDate = realToday;
+          renderAll();
+        }
+      }, 800);
+    } else {
+      _viewDate = realToday;
+    }
+  }
+}
+
+
 // ══════ QUICK LOG ══════
 function openQuickLog() {
   openModal('quickLog');
@@ -2342,24 +3187,28 @@ function applyPreset(mealKey, idx) {
 function editMeal(key) {
   state.currentEditMeal = key;
   const day = getDay();
-  const times = state.settings.mealTimes;
   const m = day.meals[key] || {
-    time: times[key],
+    time: getMealTime(key),
+    actualTime: '',
     kcal: MEAL_PRESETS[key][0].kcal,
     protein: MEAL_PRESETS[key][0].p,
     carbs: MEAL_PRESETS[key][0].c,
     fats: MEAL_PRESETS[key][0].f,
     notes: '',
-    option: 0
+    option: 0,
+    eaten: ''
   };
 
   document.getElementById('mealEditTitle').textContent = `${MEAL_ICONS[key]} ${MEAL_NAMES[key]}`;
-  document.getElementById('mealEditTime').value = m.time || times[key];
+  document.getElementById('mealEditTime').value = getMealTime(key);
+  document.getElementById('mealEditActualTime').value = m.actualTime || '';
+  document.getElementById('mealEatenInput').value = m.eaten || '';
   document.getElementById('mealEditKcal').value = m.kcal || 0;
   document.getElementById('mealEditProtein').value = m.protein || 0;
   document.getElementById('mealEditCarbs').value = m.carbs || 0;
   document.getElementById('mealEditFats').value = m.fats || 0;
   document.getElementById('mealEditNotes').value = m.notes || '';
+  document.getElementById('foodCalcResult').innerHTML = '';
 
   const sel = document.getElementById('mealEditOption');
   sel.innerHTML = '<option value="">Custom / Manual</option>';
@@ -2383,25 +3232,41 @@ function editMeal(key) {
 function saveMealEdit() {
   const key = state.currentEditMeal;
   const day = getDay();
+  const actualTime = document.getElementById('mealEditActualTime').value;
+  const scheduledTime = document.getElementById('mealEditTime').value;
+  const wasDone = day.meals[key]?.done || false;
+
   day.meals[key] = {
-    done: day.meals[key]?.done || false,
-    time: document.getElementById('mealEditTime').value,
+    done: wasDone || !!actualTime, // If actual time set, mark done
+    time: scheduledTime,
+    actualTime: actualTime || undefined,
+    eaten: document.getElementById('mealEatenInput').value,
     kcal: parseInt(document.getElementById('mealEditKcal').value) || 0,
-    protein: parseInt(document.getElementById('mealEditProtein').value) || 0,
-    carbs: parseInt(document.getElementById('mealEditCarbs').value) || 0,
-    fats: parseInt(document.getElementById('mealEditFats').value) || 0,
+    protein: parseFloat(document.getElementById('mealEditProtein').value) || 0,
+    carbs: parseFloat(document.getElementById('mealEditCarbs').value) || 0,
+    fats: parseFloat(document.getElementById('mealEditFats').value) || 0,
     notes: document.getElementById('mealEditNotes').value,
     option: document.getElementById('mealEditOption').value
   };
 
-  // If time changed, update the meal time for today
-  state.settings.mealTimes[key] = document.getElementById('mealEditTime').value;
+  // If scheduled time changed, update today's override (not settings)
+  if (scheduledTime !== state.settings.mealTimes[key]) {
+    if (!day.mealTimesOverride) day.mealTimesOverride = {};
+    day.mealTimesOverride[key] = scheduledTime;
+  }
+
+  // Cascade if actual time differs
+  if (actualTime && isViewingToday()) {
+    cascadeMealTimes(key, actualTime);
+  }
 
   saveAll();
+  calculateScore();
   closeModal('mealEdit');
   renderTodayTab();
   renderMealsTab();
-  toast('Meal saved');
+  renderHeader();
+  toast('Meal saved ✓');
 }
 
 function deleteMealLog() {
@@ -2416,11 +3281,14 @@ function deleteMealLog() {
 }
 
 function resetCascade() {
+  const day = getDay();
+  day.mealTimesOverride = {};
+  // Also reset the setting if cascaded globally
   state.settings.mealTimes = calcMealTimes(state.settings.gymTime);
   saveAll();
   renderTodayTab();
   renderMealsTab();
-  toast('Times reset to default');
+  toast('Meal times reset to default');
 }
 
 // ══════ WATER MODAL ══════
@@ -3674,12 +4542,14 @@ function go(tab) {
   state.currentTab = tab;
   document.querySelectorAll('.nb').forEach(b => b.classList.remove('on'));
   event?.target?.classList.add('on');
-  // Also toggle based on the tab arg
+  // Toggle based on tab arg (calendar added before longevity)
   document.querySelectorAll('.nb').forEach((b,i) => {
-    const tabs = ['today','meals','workout','sleep','photos','progress','pantry','supplements','achievements','plan','health','pt','longevity'];
+    const tabs = ['today','meals','workout','sleep','photos','progress','pantry','supplements','achievements','plan','health','pt','calendar','longevity'];
     b.classList.toggle('on', tabs[i] === tab);
   });
   document.querySelectorAll('.tab').forEach(t => t.classList.toggle('on', t.id === 'tab-' + tab));
+  // Render calendar if opening it
+  if (tab === 'calendar') renderCalendar();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -3862,6 +4732,7 @@ function init() {
   } else {
     // Normal load
     decrementPantry();
+    _viewDate = today(); // Always start on today
     document.getElementById('splash').classList.add('hide');
     document.getElementById('mainApp').style.display = 'block';
     document.getElementById('fab').style.display = 'block';
@@ -3872,6 +4743,13 @@ function init() {
     checkAchievements();
     renderHeader();
     renderScore();
+
+    // Check for rollover from past day
+    checkRollover();
+
+    // Set default event time
+    const evTime = document.getElementById('eventTime');
+    if (evTime) evTime.value = now();
   }
 }
 
@@ -3889,15 +4767,26 @@ document.querySelectorAll('.modal').forEach(m => {
   });
 });
 
-// Auto-refresh every minute for smart notifications
+// Auto-refresh every minute: smart notifs + day rollover
+let _lastCheckedDate = today();
 setInterval(() => {
-  if (state.user) {
-    checkSmartNotif();
-    if (state.currentTab === 'today') {
-      renderMealList('mealList', true);
+  if (!state.user) return;
+  const nowDate = today();
+  // If day changed while app open (past midnight)
+  if (nowDate !== _lastCheckedDate) {
+    _lastCheckedDate = nowDate;
+    if (isViewingToday() || _viewDate === addDays(nowDate, -1)) {
+      _viewDate = nowDate;
+      renderAll();
+      toast('🌅 New day started!');
     }
   }
-}, 60000);
+  checkSmartNotif();
+  if (state.currentTab === 'today') {
+    renderMealList('mealList', true);
+    renderDateNav();
+  }
+}, 30000); // check every 30s
 
 // Run init
 document.addEventListener('DOMContentLoaded', init);
